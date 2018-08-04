@@ -1,0 +1,60 @@
+<idea-plugin>
+  <id>com.home.idea.todo</id>
+  <name>PlainTasks</name>
+  <version>1.0</version>
+  <vendor email="aquila@21cn.com" url="https://szaquila.github.com">Home</vendor>
+
+  <description><![CDATA[
+      An opinionated todo-list idea plugin.<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Usage<br>
+      NOTE: In Windows or Linux use ctrl instead of ⌘.<br>
+      ☐ alt + i: new task.<br>
+      ☐ ⌘ + i: new task with create time.<br>
+      ☐ ⌘ + shift + d: toggle task as completed.<br>
+      ☐ ⌘ + shift + c: toggle task as cancelled.<br>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>I
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+    <group id="PlainTasks" popup="true" text="PlainTasks" >
+      <!--<add-to-group group-id="EditorPopupMenu" anchor="first"/>-->
+      <action id="com.home.idea.TodoAction" class="com.home.idea.TodoCreateAction" text="new task"
+              description="new task">
+        <keyboard-shortcut keymap="$default" first-keystroke="alt I"/>
+      </action>
+      <action id="com.home.idea.TodoCreateWithCreatedAction" class="com.home.idea.TodoCreateWithCreatedAction" text="new task with created"
+              description="new task with created">
+        <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>
+      </action>
+      <action id="com.home.idea.TodoDoneAction" class="com.home.idea.TodoDoneAction" text="task done"
+              description="toggle task as completed.">
+        <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl D"/>
+      </action>
+      <action id="com.home.idea.TodoCancelAction" class="com.home.idea.TodoCancelAction" text="task cancel"
+              description="toggle task as cancelled.">
+        <keyboard-shortcut keymap="$default" first-keystroke="alt C"/>
+      </action>
+    </group>
+  </actions>
+
+</idea-plugin>
